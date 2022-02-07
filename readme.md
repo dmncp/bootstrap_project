@@ -5,8 +5,7 @@
 ## Przegląd
 
 Projekt można obejrzeć pod poniższym linkiem:
-
-
+https://dmncp.github.io/bootstrap_project/
 
 
 
