@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title>JS Functions</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="../js-logo.png" alt="JavaScript logo" style="width: 50px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="../index.html">
+                        <i class="fa fa-home" aria-hidden="true" style="color: white; font-size: 20px;"></i>
+                        Strona Główna
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://eloquentjavascript.net/Eloquent_JavaScript.pdf">
+                        <i class="fa fa-download" aria-hidden="true" style="color: white; font-size: 20px;"></i>
+                        Pobierz PDF
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav> 
+
+    <div class="container">
+        <div class="container bg-light p-5">
+            <h2 class="text-center">Growing functions</h2>
+            <p>
+                There are two more or less natural ways for functions to be introduced into
+                programs.
+                The first is that you find yourself writing similar code multiple times. You’d
+                prefer not to do that. Having more code means more space for mistakes to
+                hide and more material to read for people trying to understand the program.
+                So you take the repeated functionality, find a good name for it, and put it into
+                a function.
+                The second way is that you find you need some functionality that you haven’t
+                written yet and that sounds like it deserves its own function. You’ll start by
+                naming the function, and then you’ll write its body. You might even start
+                writing code that uses the function before you actually define the function
+                itself.
+                How difficult it is to find a good name for a function is a good indication
+                of how clear a concept it is that you’re trying to wrap. Let’s go through an
+                example.
+                We want to write a program that prints two numbers: the numbers of cows
+                and chickens on a farm, with the words Cows and Chickens after them and zeros
+                padded before both numbers so that they are always three digits long.
+            </p>
+            <pre >
+                <code >
+                    <p class="m-0 p-0" style="color: teal; font-weight: bold; font-size: 20px;">
+                        007 Cows
+                        011 Chickens                           
+                    </p>
+                </code>
+            </pre>
+            <p>
+                This asks for a function of two arguments—the number of cows and the
+                number of chickens. Let’s get coding.
+            </p>
+            <pre >
+                <code>
+                    <p class="m-0 p-0" style="color: teal; font-weight: bold; font-size: 20px;">
+                        function printFarmInventory(cows, chickens) {
+                            let cowString = String(cows);
+                            while (cowString.length < 3) {
+                                cowString = "0" + cowString;
+                            }
+                            console.log(`${cowString} Cows`);
+                            let chickenString = String(chickens);
+                            while (chickenString.length < 3) {
+                                chickenString = "0" + chickenString;
+                            }
+                            console.log(`${chickenString} Chickens`);
+                        }
+                        printFarmInventory(7, 11);
+                    </p>
+                </code>
+            </pre>
+            <p>
+                Writing .length after a string expression will give us the length of that string.
+                Thus, the while loops keep adding zeros in front of the number strings until
+                they are at least three characters long.
+                Mission accomplished! But just as we are about to send the farmer the code
+                (along with a hefty invoice), she calls and tells us she’s also started keeping
+                pigs, and couldn’t we please extend the software to also print pigs?
+                We sure can. But just as we’re in the process of copying and pasting those
+                four lines one more time, we stop and reconsider. There has to be a better way.
+                Here’s a first attempt:
+            </p>
+            <pre>
+                <code>
+                    <p class="m-0 p-0" style="color: teal; font-weight: bold; font-size: 20px;">
+                        function printZeroPaddedWithLabel(number, label) {
+                            let numberString = String(number);
+                            while (numberString.length < 3) {
+                                numberString = "0" + numberString;
+                            }
+                            console.log(`${numberString} ${label}`);
+                        }
+                        function printFarmInventory(cows, chickens, pigs) {
+                            printZeroPaddedWithLabel(cows, "Cows");
+                            printZeroPaddedWithLabel(chickens, "Chickens");
+                            printZeroPaddedWithLabel(pigs, "Pigs");
+                        }
+                        printFarmInventory(7, 11, 3);
+                    </p>
+                </code>
+            </pre>
+            <p>
+                It works! But that name, printZeroPaddedWithLabel, is a little awkward.
+                It conflates three things—printing, zero-padding, and adding a label—into a
+                single function.
+                Instead of lifting out the repeated part of our program wholesale, let’s try
+                to pick out a single concept.
+            </p>
+            <pre>
+                <code>
+                    <p class="m-0 p-0" style="color: teal; font-weight: bold; font-size: 20px;">
+                        function zeroPad(number, width) {
+                            let string = String(number);
+                            while (string.length < width) {
+                                string = "0" + string;
+                            }
+                            return string;
+                        }
+                        function printFarmInventory(cows, chickens, pigs) {
+                            console.log(`${zeroPad(cows, 3)} Cows`);
+                            console.log(`${zeroPad(chickens, 3)} Chickens`);
+                            console.log(`${zeroPad(pigs, 3)} Pigs`);
+                        }
+                        printFarmInventory(7, 16, 3);
+                    </p>
+                </code>
+            </pre>
+            <p>
+                A function with a nice, obvious name like zeroPad makes it easier for someone
+                who reads the code to figure out what it does. And such a function is useful in
+                more situations than just this specific program. For example, you could use it
+                to help print nicely aligned tables of numbers.
+                How smart and versatile should our function be? We could write anything,
+                from a terribly simple function that can only pad a number to be three characters wide to a complicated generalized number-formatting system that handles
+                fractional numbers, negative numbers, alignment of decimal dots, padding with
+                different characters, and so on.
+                A useful principle is to not add cleverness unless you are absolutely sure
+                you’re going to need it. It can be tempting to write general “frameworks” for
+                every bit of functionality you come across. Resist that urge. You won’t get any
+                real work done—you’ll just be writing code that you never use.
+            </p>
+            <div class="text-center">
+                <a href="side-effects.html">
+                    <button type="button" class="btn btn-warning mt-3 mb-5">
+                        Next chapter
+                    </button>
+                </a>
+            </div>
+        </div>
+        
+    </div>
+
+    <footer class="footer mt-5">
+        <!-- Copyright -->
+        <div class="text-center p-4 mt-5" style="background-color: #f0db4f">
+          © 2021 Copyright: Damian Cyper
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+  </body>
+</html>

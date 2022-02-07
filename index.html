@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title>JS Functions</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="js-logo.png" alt="JavaScript logo" style="width: 50px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-home" aria-hidden="true" style="color: white; font-size: 20px;"></i>
+                        Strona Główna
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://eloquentjavascript.net/Eloquent_JavaScript.pdf">
+                        <i class="fa fa-download" aria-hidden="true" style="color: white; font-size: 20px;"></i>
+                        Pobierz PDF
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav> 
+
+    <div id="carouselExampleIndicators" class="carousel slide mb-5" data-bs-touch="false" data-bs-interval="false">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"  aria-label="Slide 1" style="filter: invert(100%);"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="active" aria-current="true" aria-label="Slide 2" style="filter: invert(100%);"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" style="filter: invert(100%);"></button>
+          </div>
+        <div class="carousel-inner">
+            <div class="carousel-item">
+                <div class="card text-center" style="background-color: #f0db4f; height: 250px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Poznaj statystyki języka JavaScript</h5>
+                        <p class="card-text">
+                            Dowiedz się dlaczego JS jest główną technologią w ogłoszeniach pracy i 
+                            najczęściej używanym językiem używanym przez programistów.
+                            Sprawdź gdzie ten język znalazł swoje największe zastosowanie i jak wypada na tle innych technologii. </p>
+                        <a href="stats.html" class="btn btn-dark">Więcej</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item active">
+                <div class="card text-center" style="background-color: #f0db4f; height: 250px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Witaj na stronie</h5>
+                        <p class="card-text">Dowiesz się tutaj czym są i jak działają funkcje w języku JavaScript. Poznasz też kilka statystyk związanych z językiem oraz poznasz wiele źródeł do nauki.</p>
+                        <a href="book-chapters/introduction.html" class="btn btn-dark">Poznaj funkcje w JS!</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="card text-center" style="background-color: #f0db4f; height: 250px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Rozpocznij samodzielną naukę !</h5>
+                        <p class="card-text">
+                            Zapoznaj się z kilkoma przydatnymi źródłami (poradnikami) do nauki języka JavaScript. 
+                            Dowiedz się jak wykorzystywać JS w tworzeniu stron internetowych oraz poznaj kilka przydatnych frameworków.
+                        </p>
+                        <a href="guides.html" class="btn btn-dark">Sprawdź</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(100%);"></span>
+            <span class="visually-hidden ">Previous</span>
+        </button>
+        <button class="carousel-control-next " type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(100%);"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="container" id="main-content">
+        <div class="row">
+            <div class="col-md-4 col-sm-6 mt-2">
+                <div class="card text-center text-white bg-dark" >
+                    <div class="card-header">Introduction</div>
+                    <div class="card-body">
+                    <p class="card-text" style="height: 150px;">A few words of introduction to the topic of functions in JavaScript.</p>
+                    <a href="book-chapters/introduction.html" class="btn btn-outline-warning">
+                        <i class="fa fa-book" aria-hidden="true" style="font-size: 20px"></i>
+                        Read
+                    </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 mt-2">
+                <div class="card text-center text-white bg-dark">
+                    <div class="card-header">Defining a function</div>
+                    <div class="card-body">
+                    <p class="card-text" style="height: 150px;">Basic function definition and some simple examples.</p>
+                    <a href="book-chapters/defining-function.html" class="btn btn-outline-warning">
+                        <i class="fa fa-book" aria-hidden="true" style="font-size: 20px"></i>
+                        Read
+                    </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 mt-2">
+                <div class="card text-center text-white bg-dark">
+                    <div class="card-header">Bindings and scopes</div>
+                    <div class="card-body">
+                    <p class="card-text" style="height: 150px;">Some information about the relationship, the scope of the relationship and its visibility.</p>
+                    <a href="book-chapters/binding.html" class="btn btn-outline-warning">
+                        <i class="fa fa-book" aria-hidden="true" style="font-size: 20px"></i>
+                        Read
+                    </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 mt-2">
+                <div class="card text-center text-white bg-dark">
+                    <div class="card-header">Functions as values</div>
+                    <div class="card-body">
+                    <p class="card-text" style="height: 150px;">Showing how to use a function as a value and why it is used. Additionally, an explanation of the declaration record.</p>
+                    <a href="book-chapters/func-as-values.html" class="btn btn-outline-warning">
+                        <i class="fa fa-book" aria-hidden="true" style="font-size: 20px"></i>
+                        Read
+                    </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 mt-2">
+                <div class="card text-center text-white bg-dark">
+                    <div class="card-header">Arrow functions</div>
+                    <div class="card-body">
+                    <p class="card-text" style="height: 150px;">Explaining the concept of arrow functions and showing several advantages of their use.</p>
+                    <a href="book-chapters/arrow-func.html" class="btn btn-outline-warning">
+                        <i class="fa fa-book" aria-hidden="true" style="font-size: 20px"></i>
+                        Read
+                    </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 mt-2">
+                <div class="card text-center text-white bg-dark" >
+                    <div class="card-header">Recursion</div>
+                    <div class="card-body">
+                    <p class="card-text" style="height: 150px;">A few words on recursion. Provide a few examples. Showing advantages and disadvantages.</p>
+                    <a href="book-chapters/recursion.html" class="btn btn-outline-warning">
+                        <i class="fa fa-book" aria-hidden="true" style="font-size: 20px"></i>
+                        Read
+                    </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 mt-2">
+                <div class="card text-center text-white bg-dark" >
+                    <div class="card-header">Growing functions</div>
+                    <div class="card-body">
+                    <p class="card-text" style="height: 150px;">There are two more or less natural ways for functions to be introduced into programs. You will get to know them in this part.</p>
+                    <a href="book-chapters/growing-func.html" class="btn btn-outline-warning">
+                        <i class="fa fa-book" aria-hidden="true" style="font-size: 20px"></i>
+                        Read
+                    </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 mt-2">
+                <div class="card text-center text-white bg-dark" >
+                    <div class="card-header">Functions and side effects</div>
+                    <div class="card-body">
+                    <p class="card-text" style="height: 150px;">Function division into called because of side effects and called to get the return value.</p>
+                    <a href="book-chapters/side-effects.html" class="btn btn-outline-warning">
+                        <i class="fa fa-book" aria-hidden="true" style="font-size: 20px"></i>
+                        Read
+                    </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 mt-2">
+                <div class="card text-center text-white bg-dark" >
+                    <div class="card-header">Summary</div>
+                    <div class="card-body">
+                    <p class="card-text" style="height: 150px;">A brief summary of the information presented about functions in JavaScript.</p>
+                    <a href="book-chapters/summary.html" class="btn btn-outline-warning">
+                        <i class="fa fa-book" aria-hidden="true" style="font-size: 20px"></i>
+                        Read
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <!-- Copyright -->
+        <div class="text-center p-4 mt-5" style="background-color: #f0db4f">
+          © 2021 Copyright: Damian Cyper
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+  </body>
+</html>
